@@ -1,0 +1,13 @@
+<input autocomplete="off" type="text" name="SearchTerm" class="form-control searchTerm js-has-overlay" data-suggesturl="https://www.elefant.ro/INTERSHOP/web/WFS/elefant-elefantRO-Site/ro_RO/-/RON/ViewSuggestSearch-Suggest?MaxAutoSuggestResults=10" placeholder="Căutați cuvânt cheie, codul de produs, tip produs">
+import time
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+try:
+    chrome = webdriver.Chrome()
+    chrome.get("https://www.elefant.ro/")
+    elements = chrome.find_elements(By.CLASS_NAME,"form-control")
+    print(len(elements))
+finally:
+    chrome.quit()
